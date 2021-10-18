@@ -1,0 +1,24 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    <name> -- <role> -- <twitter>
+
+# THANKS
+
+    <name>
+
+# TECHNOLOGY COLOPHON
+
+    CSS3, HTML5
+    Apache Server Configs, jQuery, Modernizr, Normalize.css
+
+
+<!-- <?php if (intval($resultado) === 1) { ?>
+        <div class="alerta">
+            <div class="texto exito">
+                <?php echo 'Se a registrado correctamente, Inicie Sesión'; ?>
+            </div>
+        </div>
+    <?php } else { echo null; } ?> -->
