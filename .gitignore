@@ -7,4 +7,4 @@ dist
 imagenes
 src 
 vendor
-includes/config
+includes/config/**
