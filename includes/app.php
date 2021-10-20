@@ -1,5 +1,5 @@
 <?php
-
+use Model\ActiveRecord;
 // Llamada a las funciones
 require 'funciones.php';
 
@@ -11,7 +11,7 @@ require __DIR__ . '/../vendor/autoload.php';
 
 $db = conectarDB();
 
-use App\ActiveRecord;
-
 // Integracion de la BD a nuestro archivo ActiveRecord.php
-ActiveRecord::setDB($db); 
+ActiveRecord::setDB($db);
+
+?> 

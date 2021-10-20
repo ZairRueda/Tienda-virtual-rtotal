@@ -1,29 +1,4 @@
-<?php
 
-use App\Articulo;
-
-
-require 'includes/app.php';
-
-if (isset($_SESSION['login'])) {
-    $auth = estaAutenticado();
-}
-
-if (!isset($_SESSION)) {
-    session_start();
-}
-
-$articulos = Articulo::all();
-
-$gorras = Articulo::findType(1);
-$tenis = Articulo::findType(2);
-$playeras = Articulo::findType(3);
-$pantalones = Articulo::findType(4);
-$accesorios = Articulo::findType(5);
-
-
-incluirTemplate('header');
-?>
 <main class="producto__index productos_index">
     <section>
         <div class="home__container">
@@ -88,7 +63,7 @@ incluirTemplate('header');
                 <!-- Aqui ira el Foreach -->
                 <?php
                 $tipo = tipoActual($gorras);
-                include './includes/layout/articulosTipos.php'; 
+                include __DIR__ . '/articulosTipos.php'; 
                 ?>
                 
 
@@ -109,7 +84,7 @@ incluirTemplate('header');
 
                 <?php 
                 $tipo = tipoActual($tenis);
-                include './includes/layout/articulosTipos.php'; 
+                include __DIR__ . '/articulosTipos.php'; 
                 ?>
                 
 
@@ -129,7 +104,7 @@ incluirTemplate('header');
 
                 <?php 
                 $tipo = tipoActual($playeras);
-                include './includes/layout/articulosTipos.php'; 
+                include __DIR__ . '/articulosTipos.php'; 
                 ?>
 
             </div>
@@ -148,7 +123,7 @@ incluirTemplate('header');
 
                 <?php 
                 $tipo = tipoActual($pantalones);
-                include './includes/layout/articulosTipos.php'; 
+                include __DIR__ . '/articulosTipos.php'; 
                 ?>
 
             </div>
@@ -167,7 +142,7 @@ incluirTemplate('header');
 
                 <?php 
                 $tipo = tipoActual($accesorios);
-                include './includes/layout/articulosTipos.php'; 
+                include __DIR__ . '/articulosTipos.php'; 
                 ?>
 
             </div>
@@ -175,6 +150,3 @@ incluirTemplate('header');
 
     </section>
 </main>
-
-
-<?php incluirTemplate('footer'); ?>

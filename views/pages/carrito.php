@@ -1,17 +1,3 @@
-<?php
-
-require 'includes/app.php';
-
-if (isset($_SESSION['login'])) {
-    $auth = estaAutenticado();
-}
-
-if (!isset($_SESSION)) {
-    session_start();
-}
-
-incluirTemplate('header');
-?>
 
 <main class="producto__index productos_index">
     <section>
@@ -81,6 +67,3 @@ incluirTemplate('header');
     </section>
 
 </main>
-
-
-<?php incluirTemplate('footer'); ?>

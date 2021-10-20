@@ -1,5 +1,5 @@
 <?php
-use App\Talla;
+use Model\Talla;
 
 foreach ($tipo as $articulo) { 
     

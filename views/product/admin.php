@@ -1,46 +1,3 @@
-<?php
-// Incluye un todas las funcionalidades 
-require '../includes/app.php';
-
-estaAutenticado();
-
-use App\Articulo;
-use App\Color;
-use App\Talla;
-use App\Tipo;
-
-$articulos = Articulo::all();
-// $colores = Color::find();
-// $tallas = Talla::find();
-// $tipos = Tipo::find();
-
-// debuguear($articulos);
-$resultado = $_GET['resultado'] ?? null;
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-    $id = $_POST['id'];
-
-
-
-    $id = filter_var($id, FILTER_VALIDATE_INT);
-
-    if ($id) {
-
-        // debuguear($id);
-
-        $articulo = Articulo::find($id);
-
-        // debuguear($articulo);
-
-        $articulo->eliminar();
-    }
-}
-
-incluirTemplate('header');
-
-?>
-
 <main>
 
     <section class="section bd-container">
@@ -61,7 +18,7 @@ incluirTemplate('header');
             </div>
         <?php } ?>
 
-        <a href="/admin/productos/crear.php" class="button"> Nuevo Producto </a>
+        <a href="/admin/productos/crear" class="button"> Nuevo Producto </a>
 
     </section>
 
@@ -156,13 +113,14 @@ incluirTemplate('header');
                     <td><?php echo $articulo->modelo; ?></td>
 
                     <td>
-                        <form method="POST" class="w-100">
+                        <form method="POST" action="/product/eliminar" class="w-100">
                             <input type="hidden" name="id" value="<?php echo $articulo->id; ?>">
+                            <input type="hidden" name="tipo" value="product">
                             <input type="submit" class="boton-rojo-block" value="Eliminar">
                         </form>
 
                         <!-- Pasaremos el Id para que el get toma el Id de la propiedad -->
-                        <a href="/admin/productos/actualizar.php?id=<?php echo $articulo->id; ?>" class="boton-amarillo-block actualizar">Actualizar</a>
+                        <a href="/admin/productos/actualizar?id=<?php echo $articulo->id; ?>" class="boton-amarillo-block actualizar">Actualizar</a>
                     </td>
                 </tr>
 
@@ -171,8 +129,3 @@ incluirTemplate('header');
         
     <?php endforeach; ?>
 </table>
-
-<?php
-mysqli_close($db);
-
-incluirTemplate('footer') ?>

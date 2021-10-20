@@ -1,6 +1,6 @@
 <?php 
 
-namespace App;
+namespace Model;
 
 class ActiveRecord {
 
@@ -44,6 +44,33 @@ class ActiveRecord {
         if ($resultado) {
             header('Location: /admin?resultado=1');
         }
+    }
+
+    public function crearUsuario() {
+
+        $atributos = $this->sanitizarAtributos();
+
+        $query = " INSERT INTO " . static::$tabla . " ( ";
+        $query .= join(', ', array_keys($atributos));
+        $query .= " ) VALUES ('";
+        $query .= join("', '", array_values($atributos));
+        $query .= "') ";
+
+        // $query = "INSERT INTO usuarios ( usuario, e_mail, password) VALUES ('"$this->email"', '"$this->email"', '"$this->email"') ";
+        
+        $resultado = self::$db->query($query);
+    
+        if ($resultado) {
+            header('Location: /login?resultado=1');
+        }
+    }
+
+    public function actualizarUsuario() {
+
+    }
+
+    public function eliminarUsurio() {
+
     }
 
     public function actualizar(){

@@ -1,32 +1,3 @@
-<?php  
-require 'includes/app.php';
-
-// estaAutenticado();
-
-if (!isset($_SESSION)) {
-    session_start();
-}
-
-// session_start();
-
-// echo '<pre>';
-// var_dump($_SESSION);
-// echo '</pre>';
-
-// $auth = $_SESSION['login'] ?? null ;
-
-// if (!$auth) {
-//     header('Location: /login');
-// }
-
-// echo '<pre>';
-// var_dump($_POST);
-// echo '</pre>';
-
-incluirTemplate('header');
-   
-?>
-
 <main class="l-main">
     <!--========== HOME ==========-->
 
@@ -153,7 +124,3 @@ incluirTemplate('header');
         </div>
     </section>
 </main>
-
-
-
-<?php incluirTemplate('footer'); ?>

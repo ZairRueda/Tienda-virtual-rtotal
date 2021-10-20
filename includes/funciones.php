@@ -26,8 +26,6 @@ function estaAutenticado() {
 
 }
 
-
-
 // Revicionar codigo
 function debuguear($variable)
 {
@@ -50,4 +48,24 @@ function tipoActual($tipo) {
 
     return $tipo;
 
+}
+
+function validarTipoContenido($tipo)
+{
+    $tipos = ['product', 'datos'];
+
+    return in_array($tipo, $tipos);
+}
+
+function validarORedireccionar(string $url)
+{
+    $id = $_GET['id'];
+
+    $id = filter_var($id, FILTER_VALIDATE_INT);
+
+    if (!$id) {
+        header("Location: ${url}");
+    }
+
+    return $id;
 }
